@@ -1,0 +1,20 @@
+.header {
+  padding: 30px 30px;
+}
+
+.header-box-btns {
+  display: flex;
+  column-gap: 20px;
+}
+
+.header-btn {
+  padding: 5px 10px;
+  font-family: sans-serif;
+  font-size: 20px;
+  border-color: transparent;
+  color: rgb(251, 251, 251);
+  background: rgb(230, 109, 34);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
+}
