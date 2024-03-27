@@ -3,6 +3,7 @@ import header from './components/header/header';
 import pageGarage from './pages/garage/garage';
 import store from './store/store';
 import pageWinners from './pages/winners/winners';
+import getCarsApi from './pages/garage/data';
 
 store.subscribe(render);
 
@@ -12,12 +13,13 @@ function render() {
   if (state.viewPage === 'garage') {
     document.body.innerHTML = '';
     document.body.append(header);
-    document.body.append(pageGarage);
+    document.body.append(pageGarage());
   } else {
     document.body.innerHTML = '';
     document.body.append(header);
-    document.body.append(pageWinners);
+    document.body.append(pageWinners());
   }
 }
 
+getCarsApi();
 render();

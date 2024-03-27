@@ -1,9 +1,10 @@
 import footerRace from '../../components/footer/footer';
 import panelCar from '../../components/panelCar/panelCar';
+import selectGetCars from '../../store/selector';
 import './style.css';
 
 function getGarage() {
-  const arr = [1, 2, 3, 4];
+  const arr = selectGetCars();
   const garage = document.createElement('main');
   garage.classList.add('main-container');
   garage.innerHTML = `
@@ -40,12 +41,12 @@ function getGarage() {
 
   const playground = garage.querySelector('.garage-container-playground');
 
-  arr.forEach(() => {
-    playground?.append(panelCar());
+  arr.forEach((item) => {
+    playground?.append(panelCar(item));
   });
   garage.append(footerRace);
   return garage;
 }
 
-const pageGarage = getGarage();
+const pageGarage = getGarage;
 export default pageGarage;

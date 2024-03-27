@@ -8,5 +8,5 @@ function getWinners() {
   return winners;
 }
 
-const pageWinners = getWinners();
+const pageWinners = getWinners;
 export default pageWinners;
