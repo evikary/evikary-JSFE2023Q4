@@ -18,3 +18,8 @@
   cursor: pointer;
   transition: all 0.3s;
 }
+
+.header-btn:hover {
+  background: rgb(251, 251, 251);
+  color: rgb(230, 109, 34);
+}

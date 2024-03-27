@@ -1,5 +1,100 @@
-.garage {
+.garage-container-inputs {
   font-family: sans-serif;
+  padding: 0 30px;
+}
+
+.box-inputs {
+  padding: 7px 5px;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.inputs-text {
+  padding: 5px;
+}
+
+.btn-car {
+  padding: 5px;
+  font-size: 10px;
+  border-color: transparent;
+  color: #111;
+  background: rgb(180, 237, 172);
+  box-shadow: 3px 4px 4px rgba(17, 255, 0, 0.5);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.6s;
+}
+
+.btn-car:hover {
+  background: rgb(231, 234, 64);
+  box-shadow: 3px 4px 4px rgba(233, 235, 116, 0.5);
+}
+
+.box-btns {
+  padding: 7px 5px;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+}
+
+.settings-btns {
+  padding: 5px;
+  font-size: 10px;
+  border-color: transparent;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.6s;
+}
+
+.race-btn {
+  background: rgb(226 167 245);
+  box-shadow: 3px 4px 4px rgba(227, 125, 241, 0.5);
+  color: #010101;
+}
+
+.reset-btn {
+  background: rgb(239, 236, 54);
+  box-shadow: 3px 4px 4px rgba(233, 235, 116, 0.5);
+  color: #010101;
+}
+
+.generate-btn {
+  background: rgb(157 178 236);
+  box-shadow: 3px 4px 4px rgb(140 166 219 / 50%);
+  color: #010101;
+}
+
+.settings-btns:hover {
+  background: rgb(248, 250, 248);
+  box-shadow: 3px 4px 4px rgba(255, 255, 255, 0.5);
+}
+
+.garage-container-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 0 30px;
+  margin-top: 50px;
+  font-family: sans-serif;
+}
+
+.text-box {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  color: rgb(248, 250, 248);
+}
+
+.count-car {
   font-size: 20px;
-  color: rgb(251, 251, 251);
+}
+
+.garage-container-playground {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 0 30px;
+  margin-top: 30px;
+  font-family: sans-serif;
 }
