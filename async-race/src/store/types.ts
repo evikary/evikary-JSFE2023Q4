@@ -1,4 +1,11 @@
-import { CHANGE_PAGE, START_GAME, GET_CARS_SUCCESS, GET_CARS_FAILED } from './constants';
+import {
+  CHANGE_PAGE,
+  START_GAME,
+  GET_CARS_SUCCESS,
+  GET_CARS_FAILED,
+  CREATE_CAR_SUCCESS,
+  CREATE_CAR_FAILED,
+} from './constants';
 
 export interface StateData {
   viewPage: 'garage' | 'winners';
@@ -24,10 +31,24 @@ export interface GetCarsSuccessActionType {
   payload: Car[];
 }
 
+export interface CreateCarSuccessActionType {
+  readonly type: typeof CREATE_CAR_SUCCESS;
+  payload: Car;
+}
+
+export interface CreateCarFailedActionType {
+  readonly type: typeof CREATE_CAR_FAILED;
+}
+
 export type SubcribersType = () => void;
 
 export interface Car {
   name: string;
   color: string;
   id: number;
+}
+
+export interface CreatedCar {
+  name: string;
+  color: string;
 }

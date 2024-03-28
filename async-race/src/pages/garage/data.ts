@@ -1,4 +1,4 @@
-import getCars from '../../services/api';
+import { getCars } from '../../services/api';
 import { GET_CARS_FAILED, GET_CARS_SUCCESS } from '../../store/constants';
 import store from '../../store/store';
 

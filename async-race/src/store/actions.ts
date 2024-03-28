@@ -1,5 +1,12 @@
 import { CHANGE_PAGE, START_GAME } from './constants';
-import { ChangePageActionType, GetCarsFailedActionType, GetCarsSuccessActionType, StartGameActionType } from './types';
+import {
+  ChangePageActionType,
+  CreateCarFailedActionType,
+  CreateCarSuccessActionType,
+  GetCarsFailedActionType,
+  GetCarsSuccessActionType,
+  StartGameActionType,
+} from './types';
 
 export const startGameAction = (): StartGameActionType => ({ type: START_GAME });
 
@@ -12,4 +19,6 @@ export type AllActions =
   | StartGameActionType
   | ChangePageActionType
   | GetCarsSuccessActionType
-  | GetCarsFailedActionType;
+  | GetCarsFailedActionType
+  | CreateCarSuccessActionType
+  | CreateCarFailedActionType;

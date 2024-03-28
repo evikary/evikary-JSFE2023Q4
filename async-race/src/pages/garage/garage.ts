@@ -1,5 +1,6 @@
 import footerRace from '../../components/footer/footer';
 import panelCar from '../../components/panelCar/panelCar';
+import toolbarGarage from '../../components/toolbarGarage/toolbarGarage';
 import selectGetCars from '../../store/selector';
 import './style.css';
 
@@ -8,23 +9,6 @@ function getGarage() {
   const garage = document.createElement('main');
   garage.classList.add('main-container');
   garage.innerHTML = `
-    <section class='garage-container-inputs'>
-      <div class='box-inputs'>
-        <label><input type='text' class='inputs-text'></label>
-        <label><input type="color"></label>
-        <button class='btn-car create-btn'>create</button>
-      </div>
-      <div class='box-inputs'>
-        <label><input type='text' class='inputs-text'></label>
-        <label><input type="color"></label>
-        <button class='btn-car update-btn'>update</button>
-      </div>
-      <div class='box-btns'>
-        <button class='settings-btns race-btn'>race</button>
-        <button class='settings-btns reset-btn'>reset</button>
-        <button class='settings-btns generate-btn'>generate cars</button>
-      </div>
-    </section>
     <section class='garage-container-text'>
       <div class='text-box'>
         <h1>Garage</h1>
@@ -45,6 +29,7 @@ function getGarage() {
     playground?.append(panelCar(item));
   });
   garage.append(footerRace);
+  garage.prepend(toolbarGarage);
   return garage;
 }
 

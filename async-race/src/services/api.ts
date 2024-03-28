@@ -1,6 +1,7 @@
 import { URL } from '../store/constants';
+import { CreatedCar } from '../store/types';
 
-const getCars = async () => {
+export const getCars = async () => {
   try {
     const response = await fetch(`${URL}/garage`);
     const json = await response.json();
@@ -10,4 +11,16 @@ const getCars = async () => {
   }
 };
 
-export default getCars;
+export const createCar = async (data: CreatedCar) => {
+  try {
+    const response = await fetch(`${URL}/garage`, {
+      method: 'POST',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
