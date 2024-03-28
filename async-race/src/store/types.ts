@@ -5,6 +5,7 @@ import {
   GET_CARS_FAILED,
   CREATE_CAR_SUCCESS,
   CREATE_CAR_FAILED,
+  DELETE_CAR,
 } from './constants';
 
 export interface StateData {
@@ -38,6 +39,11 @@ export interface CreateCarSuccessActionType {
 
 export interface CreateCarFailedActionType {
   readonly type: typeof CREATE_CAR_FAILED;
+}
+
+export interface DeleteCarActionType {
+  readonly type: typeof DELETE_CAR;
+  payload: number;
 }
 
 export type SubcribersType = () => void;

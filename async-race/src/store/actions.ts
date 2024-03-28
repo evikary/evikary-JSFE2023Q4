@@ -3,6 +3,7 @@ import {
   ChangePageActionType,
   CreateCarFailedActionType,
   CreateCarSuccessActionType,
+  DeleteCarActionType,
   GetCarsFailedActionType,
   GetCarsSuccessActionType,
   StartGameActionType,
@@ -21,4 +22,5 @@ export type AllActions =
   | GetCarsSuccessActionType
   | GetCarsFailedActionType
   | CreateCarSuccessActionType
-  | CreateCarFailedActionType;
+  | CreateCarFailedActionType
+  | DeleteCarActionType;

@@ -1,3 +1,6 @@
+import { deleteCar } from '../../services/api';
+import { DELETE_CAR } from '../../store/constants';
+import store from '../../store/store';
 import { Car } from '../../store/types';
 import './style.css';
 
@@ -119,6 +122,17 @@ function createPanelCar(car: Car) {
     </svg>
 
     `;
+
+  const removeBtn = panel.querySelector('.remove') as HTMLButtonElement;
+  removeBtn.addEventListener('click', () => handeleDeleteCar(car.id));
+
+  function handeleDeleteCar(id: number) {
+    deleteCar(id)
+      .then(() => {
+        store.dispatch({ type: DELETE_CAR, payload: id });
+      })
+      .catch(() => {});
+  }
 
   return panel;
 }

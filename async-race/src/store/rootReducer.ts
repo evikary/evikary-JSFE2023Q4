@@ -1,5 +1,12 @@
 import { AllActions } from './actions';
-import { CHANGE_PAGE, CREATE_CAR_SUCCESS, GET_CARS_FAILED, GET_CARS_SUCCESS, START_GAME } from './constants';
+import {
+  CHANGE_PAGE,
+  CREATE_CAR_SUCCESS,
+  DELETE_CAR,
+  GET_CARS_FAILED,
+  GET_CARS_SUCCESS,
+  START_GAME,
+} from './constants';
 import { StateData } from './types';
 
 export const initialState: StateData = {
@@ -38,6 +45,11 @@ export const rootReducer = (state = initialState, action: AllActions): StateData
       return {
         ...state,
         cars: [...state.cars, action.payload],
+      };
+    case DELETE_CAR:
+      return {
+        ...state,
+        cars: state.cars.filter((item) => item.id !== action.payload),
       };
     default:
       return state;

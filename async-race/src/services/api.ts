@@ -24,3 +24,14 @@ export const createCar = async (data: CreatedCar) => {
     return Promise.reject(error);
   }
 };
+
+export const deleteCar = async (id: number) => {
+  try {
+    const response = await fetch(`${URL}/garage/${id}`, {
+      method: 'DELETE',
+    });
+    return response;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
