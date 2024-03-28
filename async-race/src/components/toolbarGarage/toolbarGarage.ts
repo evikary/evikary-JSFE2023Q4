@@ -1,5 +1,5 @@
-import { createCar } from '../../services/api';
-import { CREATE_CAR_SUCCESS } from '../../store/constants';
+import { createCar, updateCar } from '../../services/api';
+import { CREATE_CAR_SUCCESS, UPDATE_CAR } from '../../store/constants';
 import store from '../../store/store';
 import './style.css';
 
@@ -13,8 +13,9 @@ function createToolbar() {
         <button class='btn-car create-btn'>create</button>
     </div>
     <div class='box-inputs'>
-        <label><input type='text' class='inputs-text'></label>
-        <label><input type="color"></label>
+        <input type='hidden' class='hidden-update'>
+        <label><input type='text' value="" class='inputs-text text-update'></label>
+        <label><input type="color" class='color-update'></label>
         <button class='btn-car update-btn'>update</button>
     </div>
     <div class='box-btns'>
@@ -25,7 +26,12 @@ function createToolbar() {
   `;
 
   const createBtn = toolbar.querySelector('.create-btn');
+  const updateBtn = toolbar.querySelector('.update-btn') as HTMLButtonElement;
+  const updateInput = toolbar.querySelector('.text-update') as HTMLInputElement;
+  const updateColor = toolbar.querySelector('.color-update') as HTMLInputElement;
+  const updateHidden = toolbar.querySelector('.hidden-update') as HTMLInputElement;
 
+  updateBtn.addEventListener('click', () => handeleUpdateCar());
   createBtn?.addEventListener('click', () => {
     const inputText = toolbar.querySelector('.text-create') as HTMLInputElement;
     const inputColor = toolbar.querySelector('.color-create') as HTMLInputElement;
@@ -33,6 +39,10 @@ function createToolbar() {
       name: inputText.value,
       color: inputColor.value,
     };
+
+    if (inputText.value.trim() === '') {
+      return;
+    }
 
     createCar(carData)
       .then((data) => {
@@ -42,6 +52,23 @@ function createToolbar() {
       })
       .catch(() => {});
   });
+
+  function handeleUpdateCar() {
+    const id = updateHidden.value;
+    const updateCarData = {
+      name: updateInput.value,
+      color: updateColor.value,
+    };
+
+    updateCar(updateCarData, id)
+      .then((data) => {
+        store.dispatch({ type: UPDATE_CAR, payload: data });
+        updateInput.value = '';
+        updateColor.value = '';
+        updateHidden.value = '';
+      })
+      .catch(() => {});
+  }
 
   return toolbar;
 }

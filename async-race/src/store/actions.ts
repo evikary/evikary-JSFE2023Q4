@@ -7,6 +7,7 @@ import {
   GetCarsFailedActionType,
   GetCarsSuccessActionType,
   StartGameActionType,
+  UpdateCarActionType,
 } from './types';
 
 export const startGameAction = (): StartGameActionType => ({ type: START_GAME });
@@ -23,4 +24,5 @@ export type AllActions =
   | GetCarsFailedActionType
   | CreateCarSuccessActionType
   | CreateCarFailedActionType
-  | DeleteCarActionType;
+  | DeleteCarActionType
+  | UpdateCarActionType;

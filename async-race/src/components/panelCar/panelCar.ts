@@ -124,7 +124,10 @@ function createPanelCar(car: Car) {
     `;
 
   const removeBtn = panel.querySelector('.remove') as HTMLButtonElement;
+  const selectBtn = panel.querySelector('.select') as HTMLButtonElement;
+
   removeBtn.addEventListener('click', () => handeleDeleteCar(car.id));
+  selectBtn.addEventListener('click', () => handeleSelectCar(car));
 
   function handeleDeleteCar(id: number) {
     deleteCar(id)
@@ -132,6 +135,16 @@ function createPanelCar(car: Car) {
         store.dispatch({ type: DELETE_CAR, payload: id });
       })
       .catch(() => {});
+  }
+
+  function handeleSelectCar(item: Car) {
+    const updateInput = document.querySelector('.text-update') as HTMLInputElement;
+    const updateColor = document.querySelector('.color-update') as HTMLInputElement;
+    const updateHidden = document.querySelector('.hidden-update') as HTMLInputElement;
+
+    updateInput.value = item.name;
+    updateColor.value = item.color;
+    updateHidden.value = String(item.id);
   }
 
   return panel;

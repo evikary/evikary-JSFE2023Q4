@@ -35,3 +35,17 @@ export const deleteCar = async (id: number) => {
     return Promise.reject(error);
   }
 };
+
+export const updateCar = async (data: CreatedCar, id: string) => {
+  try {
+    const response = await fetch(`${URL}/garage/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' },
+    });
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};

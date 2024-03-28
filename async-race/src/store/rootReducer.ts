@@ -6,6 +6,7 @@ import {
   GET_CARS_FAILED,
   GET_CARS_SUCCESS,
   START_GAME,
+  UPDATE_CAR,
 } from './constants';
 import { StateData } from './types';
 
@@ -50,6 +51,16 @@ export const rootReducer = (state = initialState, action: AllActions): StateData
       return {
         ...state,
         cars: state.cars.filter((item) => item.id !== action.payload),
+      };
+    case UPDATE_CAR:
+      return {
+        ...state,
+        cars: state.cars.map((item) => {
+          if (item.id === action.payload.id) {
+            return action.payload;
+          }
+          return item;
+        }),
       };
     default:
       return state;

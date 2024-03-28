@@ -25,11 +25,13 @@ function getGarage() {
 
   const playground = garage.querySelector('.garage-container-playground');
 
+  garage.prepend(toolbarGarage);
+
   arr.forEach((item) => {
     playground?.append(panelCar(item));
   });
+
   garage.append(footerRace);
-  garage.prepend(toolbarGarage);
   return garage;
 }
 
