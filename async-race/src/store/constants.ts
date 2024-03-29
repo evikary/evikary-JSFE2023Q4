@@ -8,3 +8,29 @@ export const CREATE_CAR_SUCCESS = 'CREATE_CAR';
 export const CREATE_CAR_FAILED = 'CREATE_CAR_FAILED';
 export const DELETE_CAR = 'DELETE_CAR';
 export const UPDATE_CAR = 'UPDATE_CAR';
+
+export const namesCar = [
+  'Volkswagen',
+  'Kia',
+  'Honda',
+  'Volvo',
+  'Jaguar',
+  'Lexus',
+  'Ford',
+  'Nissan',
+  'Peugeot',
+  'Mazda',
+];
+
+export const colorsCar = [
+  '#e6ea8c',
+  '#e7b25e',
+  '#5ee7e7',
+  '#e49ed5',
+  '#072476',
+  '#6ad9a3',
+  '#bec3c0',
+  '#91d189',
+  '#f45a38',
+  '#749150',
+];

@@ -2,6 +2,7 @@ import footerRace from '../../components/footer/footer';
 import panelCar from '../../components/panelCar/panelCar';
 import toolbarGarage from '../../components/toolbarGarage/toolbarGarage';
 import selectGetCars from '../../store/selector';
+import store from '../../store/store';
 import './style.css';
 
 function getGarage() {
@@ -12,7 +13,7 @@ function getGarage() {
     <section class='garage-container-text'>
       <div class='text-box'>
         <h1>Garage</h1>
-        <span class='count-car'>0</span>
+        <span class='count-car'>${store.getState().cars.length}</span>
       </div>
       <div class='text-box'>
         <h3>Page</h3>
@@ -23,7 +24,7 @@ function getGarage() {
     </section>
   `;
 
-  const playground = garage.querySelector('.garage-container-playground');
+  const playground = garage.querySelector('.garage-container-playground') as HTMLElement;
 
   garage.prepend(toolbarGarage);
 

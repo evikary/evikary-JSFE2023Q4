@@ -1,5 +1,5 @@
 import { createCar, updateCar } from '../../services/api';
-import { CREATE_CAR_SUCCESS, UPDATE_CAR } from '../../store/constants';
+import { CREATE_CAR_SUCCESS, UPDATE_CAR, colorsCar, namesCar } from '../../store/constants';
 import store from '../../store/store';
 import './style.css';
 
@@ -25,11 +25,12 @@ function createToolbar() {
     </div>
   `;
 
-  const createBtn = toolbar.querySelector('.create-btn');
+  const createBtn = toolbar.querySelector('.create-btn') as HTMLButtonElement;
   const updateBtn = toolbar.querySelector('.update-btn') as HTMLButtonElement;
   const updateInput = toolbar.querySelector('.text-update') as HTMLInputElement;
   const updateColor = toolbar.querySelector('.color-update') as HTMLInputElement;
   const updateHidden = toolbar.querySelector('.hidden-update') as HTMLInputElement;
+  const generateBtn = toolbar.querySelector('.generate-btn') as HTMLButtonElement;
 
   updateBtn.addEventListener('click', () => handeleUpdateCar());
   createBtn?.addEventListener('click', () => {
@@ -69,6 +70,22 @@ function createToolbar() {
       })
       .catch(() => {});
   }
+
+  generateBtn.addEventListener('click', () => {
+    for (let i = 0; i < 100; i++) {
+      const index = Math.floor(Math.random() * 10);
+      const carRandomData = {
+        name: namesCar[index],
+        color: colorsCar[index],
+      };
+
+      createCar(carRandomData)
+        .then((data) => {
+          store.dispatch({ type: CREATE_CAR_SUCCESS, payload: data });
+        })
+        .catch(() => {});
+    }
+  });
 
   return toolbar;
 }
