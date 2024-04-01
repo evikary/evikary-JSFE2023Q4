@@ -50,3 +50,33 @@ export const updateCar = async (data: CreatedCar, id: string) => {
     return Promise.reject(error);
   }
 };
+
+export const startCar = async (id: string, status: string) => {
+  try {
+    const response = await fetch(`${URL}/engine/?id=${id}&status=${status}`, {
+      method: 'PATCH',
+    });
+    const json = await response.json();
+    return json;
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};
+
+export const startEngine = async (id: string, status: string) => {
+  try {
+    const response = await fetch(`${URL}/engine/?id=${id}&status=${status}`, {
+      method: 'PATCH',
+    });
+    if (response.status === 200) {
+      const json = await response.json();
+      return json;
+    }
+    return {
+      success: false,
+      status: response.status,
+    };
+  } catch (error) {
+    return Promise.reject(error);
+  }
+};

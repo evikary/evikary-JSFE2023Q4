@@ -67,3 +67,15 @@
 .panel-car {
   border-bottom: dashed 3px rgb(248, 249, 250);
 }
+
+.car-box {
+  display: flex;
+}
+
+.distance-car {
+  flex-grow: 1;
+  background-image: url('../../assets/flag.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom 0 right 80px;
+}

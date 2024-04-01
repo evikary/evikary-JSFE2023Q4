@@ -38,3 +38,5 @@ export const colorsCar = [
 ];
 
 export const limitCar = 7;
+
+export const statusCar = ['started', 'stopped', 'drive'];
