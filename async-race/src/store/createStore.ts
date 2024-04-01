@@ -9,7 +9,6 @@ const createStore = (rootReducer: RootReducerType, initialState?: StateData) => 
   return {
     dispatch(action: AllActions) {
       state = rootReducer(state, action);
-      console.log('state', state);
       subscribers.forEach((sub) => sub());
     },
     subscribe(callback: () => void) {
