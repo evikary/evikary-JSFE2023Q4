@@ -1,5 +1,7 @@
+import getCarsApi from '../../pages/garage/data';
 import { deleteCar } from '../../services/api';
 import { DELETE_CAR } from '../../store/constants';
+import { selectCurrentPage } from '../../store/selector';
 import store from '../../store/store';
 import { Car } from '../../store/types';
 import './style.css';
@@ -133,6 +135,7 @@ function createPanelCar(car: Car) {
     deleteCar(id)
       .then(() => {
         store.dispatch({ type: DELETE_CAR, payload: id });
+        getCarsApi(selectCurrentPage());
       })
       .catch(() => {});
   }

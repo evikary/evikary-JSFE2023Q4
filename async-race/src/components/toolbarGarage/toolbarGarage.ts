@@ -1,5 +1,7 @@
+import getCarsApi from '../../pages/garage/data';
 import { createCar, updateCar } from '../../services/api';
 import { CREATE_CAR_SUCCESS, UPDATE_CAR, colorsCar, namesCar } from '../../store/constants';
+import { selectCurrentPage } from '../../store/selector';
 import store from '../../store/store';
 import './style.css';
 
@@ -48,6 +50,7 @@ function createToolbar() {
     createCar(carData)
       .then((data) => {
         store.dispatch({ type: CREATE_CAR_SUCCESS, payload: data });
+        getCarsApi(selectCurrentPage());
         inputText.value = '';
         inputColor.value = '';
       })
@@ -82,6 +85,7 @@ function createToolbar() {
       createCar(carRandomData)
         .then((data) => {
           store.dispatch({ type: CREATE_CAR_SUCCESS, payload: data });
+          getCarsApi(selectCurrentPage());
         })
         .catch(() => {});
     }

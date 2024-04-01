@@ -22,3 +22,7 @@
   background: rgb(230, 109, 34);
   color: #f9f7f5;
 }
+
+.disabledBtn {
+  opacity: 0.4;
+}

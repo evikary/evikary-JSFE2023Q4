@@ -1,4 +1,4 @@
-import { CHANGE_PAGE, START_GAME } from './constants';
+import { CHANGE_PAGE, NEXT_PAGE, PREV_PAGE, START_GAME } from './constants';
 import {
   ChangePageActionType,
   CreateCarFailedActionType,
@@ -6,6 +6,8 @@ import {
   DeleteCarActionType,
   GetCarsFailedActionType,
   GetCarsSuccessActionType,
+  NextPageActionType,
+  PrevPageActionType,
   StartGameActionType,
   UpdateCarActionType,
 } from './types';
@@ -17,6 +19,9 @@ export const changePageAction = (title: 'garage' | 'winners'): ChangePageActionT
   payload: title,
 });
 
+export const nextPageAction = (): NextPageActionType => ({ type: NEXT_PAGE });
+export const prevPageAction = (): PrevPageActionType => ({ type: PREV_PAGE });
+
 export type AllActions =
   | StartGameActionType
   | ChangePageActionType
@@ -25,4 +30,6 @@ export type AllActions =
   | CreateCarSuccessActionType
   | CreateCarFailedActionType
   | DeleteCarActionType
-  | UpdateCarActionType;
+  | UpdateCarActionType
+  | NextPageActionType
+  | PrevPageActionType;

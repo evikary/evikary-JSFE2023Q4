@@ -4,6 +4,7 @@ import pageGarage from './pages/garage/garage';
 import store from './store/store';
 import pageWinners from './pages/winners/winners';
 import getCarsApi from './pages/garage/data';
+import { selectCurrentPage } from './store/selector';
 
 store.subscribe(render);
 
@@ -21,5 +22,5 @@ function render() {
   }
 }
 
-getCarsApi();
+getCarsApi(selectCurrentPage());
 render();

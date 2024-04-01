@@ -8,6 +8,8 @@ export const CREATE_CAR_SUCCESS = 'CREATE_CAR';
 export const CREATE_CAR_FAILED = 'CREATE_CAR_FAILED';
 export const DELETE_CAR = 'DELETE_CAR';
 export const UPDATE_CAR = 'UPDATE_CAR';
+export const NEXT_PAGE = 'NEXT_PAGE';
+export const PREV_PAGE = 'PREV_PAGE';
 
 export const namesCar = [
   'Volkswagen',
@@ -34,3 +36,5 @@ export const colorsCar = [
   '#f45a38',
   '#749150',
 ];
+
+export const limitCar = 7;

@@ -1,23 +1,23 @@
 import footerRace from '../../components/footer/footer';
 import panelCar from '../../components/panelCar/panelCar';
 import toolbarGarage from '../../components/toolbarGarage/toolbarGarage';
-import selectGetCars from '../../store/selector';
-import store from '../../store/store';
+import { selectCurrentPage, selectGetCars, selectTotalCars } from '../../store/selector';
 import './style.css';
 
 function getGarage() {
   const arr = selectGetCars();
+  const curPage = selectCurrentPage();
   const garage = document.createElement('main');
   garage.classList.add('main-container');
   garage.innerHTML = `
     <section class='garage-container-text'>
       <div class='text-box'>
         <h1>Garage</h1>
-        <span class='count-car'>${store.getState().cars.length}</span>
+        <span class='count-car'>${selectTotalCars()}</span>
       </div>
       <div class='text-box'>
         <h3>Page</h3>
-        <span>#1</span>
+        <span class='page'>#${curPage}</span>
       </div>
     </section>
     <section class='garage-container-playground'>

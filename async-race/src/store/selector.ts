@@ -1,8 +1,16 @@
 import store from './store';
 
-const selectGetCars = () => {
+export const selectGetCars = () => {
   const state = store.getState();
   return state.cars;
 };
 
-export default selectGetCars;
+export const selectCurrentPage = () => {
+  const state = store.getState();
+  return state.currentPage;
+};
+
+export const selectTotalCars = () => {
+  const state = store.getState();
+  return state.totalCars;
+};

@@ -1,11 +1,12 @@
-import { URL } from '../store/constants';
+import { URL, limitCar } from '../store/constants';
 import { CreatedCar } from '../store/types';
 
-export const getCars = async () => {
+export const getCars = async (page: number) => {
   try {
-    const response = await fetch(`${URL}/garage`);
+    const response = await fetch(`${URL}/garage?_page=${String(page)}&_limit=${String(limitCar)}`);
     const json = await response.json();
-    return json;
+    const count = Number(response.headers.get('X-Total-Count'));
+    return { totalCount: count, cars: json };
   } catch (error) {
     return Promise.reject(error);
   }

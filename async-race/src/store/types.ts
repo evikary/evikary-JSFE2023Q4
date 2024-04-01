@@ -7,12 +7,16 @@ import {
   CREATE_CAR_FAILED,
   DELETE_CAR,
   UPDATE_CAR,
+  NEXT_PAGE,
+  PREV_PAGE,
 } from './constants';
 
 export interface StateData {
   viewPage: 'garage' | 'winners';
+  totalCars: number;
   cars: Car[];
   carsFailed: boolean;
+  currentPage: number;
 }
 
 export interface StartGameActionType {
@@ -30,7 +34,10 @@ export interface GetCarsFailedActionType {
 
 export interface GetCarsSuccessActionType {
   readonly type: typeof GET_CARS_SUCCESS;
-  payload: Car[];
+  payload: {
+    totalCount: number;
+    cars: Car[];
+  };
 }
 
 export interface CreateCarSuccessActionType {
@@ -50,6 +57,14 @@ export interface DeleteCarActionType {
 export interface UpdateCarActionType {
   readonly type: typeof UPDATE_CAR;
   payload: Car;
+}
+
+export interface NextPageActionType {
+  readonly type: typeof NEXT_PAGE;
+}
+
+export interface PrevPageActionType {
+  readonly type: typeof PREV_PAGE;
 }
 
 export type SubcribersType = () => void;

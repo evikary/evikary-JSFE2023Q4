@@ -29,6 +29,8 @@
   font-family: sans-serif;
 }
 
-.g {
-  color: #dbe056;
+.page {
+  font-size: 25px;
+  font-weight: 600;
+  color: #fff;
 }

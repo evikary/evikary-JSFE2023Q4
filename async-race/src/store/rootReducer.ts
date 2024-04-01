@@ -5,6 +5,8 @@ import {
   DELETE_CAR,
   GET_CARS_FAILED,
   GET_CARS_SUCCESS,
+  NEXT_PAGE,
+  PREV_PAGE,
   START_GAME,
   UPDATE_CAR,
 } from './constants';
@@ -14,7 +16,9 @@ export const initialState: StateData = {
   viewPage: 'garage',
 
   cars: [],
+  totalCars: 0,
   carsFailed: false,
+  currentPage: 1,
 };
 
 export type RootReducerType = (state: StateData | undefined, action: AllActions) => StateData;
@@ -35,7 +39,9 @@ export const rootReducer = (state = initialState, action: AllActions): StateData
       return {
         ...state,
         carsFailed: false,
-        cars: action.payload,
+        cars: action.payload.cars,
+        totalCars: action.payload.totalCount,
+        currentPage: state.currentPage,
       };
     case GET_CARS_FAILED:
       return {
@@ -45,12 +51,22 @@ export const rootReducer = (state = initialState, action: AllActions): StateData
     case CREATE_CAR_SUCCESS:
       return {
         ...state,
-        cars: [...state.cars, action.payload],
+        // cars: [...state.cars, action.payload],
+      };
+    case NEXT_PAGE:
+      return {
+        ...state,
+        currentPage: state.currentPage + 1,
+      };
+    case PREV_PAGE:
+      return {
+        ...state,
+        currentPage: state.currentPage - 1,
       };
     case DELETE_CAR:
       return {
         ...state,
-        cars: state.cars.filter((item) => item.id !== action.payload),
+        // cars: state.cars.filter((item) => item.id !== action.payload),
       };
     case UPDATE_CAR:
       return {
